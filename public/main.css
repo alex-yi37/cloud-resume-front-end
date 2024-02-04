@@ -64,14 +64,19 @@ h6 {
 
 /* my styles below here */
 
-/* css variables */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .main-container {
   display: flex;
   flex-direction: column;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .main-container > h1 {
@@ -98,7 +103,7 @@ h6 {
 }
 
 .employment-header > p {
-  font-weight: 600;
+  font-weight: bold;
 }
 .employment-header > p:first-child {
   font-style: italic;
@@ -117,4 +122,44 @@ h6 {
 
 .employment-list > li:last-child {
   padding-bottom: 8px;
+}
+
+.skills-list {
+  list-style: none;
+  padding-left: 20px;
+  padding-bottom: 16px;
+}
+
+.education-list {
+  padding-left: 20px;
+}
+
+.education-item {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.education-item > p:last-child {
+  font-weight: bold;
+}
+
+/* media queries */
+@media screen and (min-width: 600px) {
+  .main-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .main-container {
+    max-width: 860px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .main-container {
+    max-width: 1000px;
+  }
 }

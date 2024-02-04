@@ -115,6 +115,10 @@ function composeEmploymentBlock(employmentObj) {
 
   listItem.append(jobDetailsContainer);
 
+  // listItem the li element in a list
+  // put here to remind me what listItem is
+  var listItem;
+
   return listItem;
 }
 
