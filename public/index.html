@@ -7,6 +7,84 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Cloud Resume</title>
     <link rel="stylesheet" href="main.css" />
+    <!-- vue script -->
+    <script type="module">
+      import { createApp } from "https://unpkg.com/petite-vue?module";
+
+      createApp({
+        // exposed to all expressions
+        employmentHistory: [
+          {
+            company: "Nomad Health", // string, req
+            role: "Software Engineer", // string, req
+            dateRange: "June 2022 - September 2022", // string, req - represents dates worked
+            location: "New York, NY", // string, req - represents work location
+            // detailList Array<string>, req - represents bullet points of what I did at the job
+            detailList: [
+              "Developed features and bug fixes in a Flask app. Wrote integration and unit tests for any changes made to the codebase",
+              "Participated in sprint planning as part of a an agile team to plan and discuss upcoming features",
+              "Implemented front end features and bug fixes in Typescript using React, Material UI, react-query and various other libraries",
+              "Acted as one of two main developers for reworking an internal-facing workflow. This involved cross functional collaboration with designers, engineers and product managers from other teams to align on timelines and goals",
+            ],
+          },
+          {
+            company: "Chronograph",
+            role: "Software Developer",
+            dateRange: "July 2021 - November 2021",
+            location: "Brooklyn, NY",
+            detailList: [
+              "Gained experience with Ruby on Rails while implementing fixes and features for back end applications",
+              "Participated in meetings with team members to discuss upcoming features. To this end, drafted documents outlining scope, high level implementation, and open questions to be shared with the team",
+              "Implemented front end features and bug fixes using React, Redux, and various other libraries. Used Typescript for the majority of this work",
+            ],
+          },
+          {
+            company: "Infosys",
+            role: "Associate Software Developer",
+            dateRange: "March 2020 - July 2021",
+            location: "New York, NY",
+            detailList: [
+              "Developed part of the checkout flow for a Telecommunications client using React, Material UI and Next.js",
+              "Created an accessible UX for screen reader users by implementing accessibility best practices",
+              "Followed agile software development practices throughout the duration of the project using JIRA",
+              "Participated in and presented feature demos to internal stakeholders for product buy-in",
+            ],
+          },
+          {
+            company: "Fullstack Academy of Code",
+            role: "Software Engineering Teaching Fellow",
+            dateRange: "Sep 2019 - Dec 2019",
+            location: "New York, NY",
+            detailList: [
+              "Led review of the NERD stack (Node.js, Express.js, React, Redux, Relational Databases), as well as algorithms and data structures",
+              "Administered technical interviews to prospective students",
+              "Directed two student teams as a technical mentor and project manager, leading standups and code reviews",
+            ],
+          },
+        ],
+        // get employment history that replaces missing values with default values
+        get employmentHistoryList() {
+          return this.employmentHistory.map((employmentObj) => {
+            return {
+              company: employmentObj?.company || "No company indicated", // string, req
+              role: employmentObj?.role || "No role indicated", // string, req
+              dateRange: employmentObj?.dateRange || "No date range indicated", // string, req - represents dates worked
+              location: employmentObj?.location || "No location indicated", // string, req - represents work location
+              // detailList Array<string>, req - represents bullet points of what I did at the job
+              detailList:
+                employmentObj?.detailList &&
+                Array.isArray(employmentObj.detailList) &&
+                employmentObj.detailList?.length > 0
+                  ? employmentObj.detailList
+                  : "No job details indicated",
+            };
+          });
+        },
+        logging(item) {
+          console.log(item);
+        },
+      }).mount();
+    </script>
   </head>
   <body>
     <main class="main-container">
@@ -25,9 +103,21 @@
       <!-- employment history -->
       <div class="employment-container">
         <h3>Employment</h3>
-        <ul class="employment-list">
+        <!-- vue stuff below -->
+        <ul v-scope class="employment-list">
           <!-- list populated by js -->
+          <li v-for="empObj in employmentHistoryList">
+            <div class="employment-header">
+              <p>{{ empObj.role }}</p>
+              <p>{{ empObj.dateRange }}</p>
+            </div>
+            <p>{{ empObj.company }} - {{ empObj.location }}</p>
+            <ul class="job-detail-container">
+              <li v-for="jobItem in empObj.detailList"><p>{{ jobItem }}</p></li>
+            </ul>
+          </li>
         </ul>
+        <!-- vue stuff above -->
       </div>
       <hr />
       <!-- skills list -->
