@@ -132,4 +132,5 @@ function createEmploymentList(employmentList) {
   }
 }
 
+// was rendering employment history for each role with vanilla js code here, but chose to use a small vue dependency for rendering instead
 // createEmploymentList(employmentHistory);
