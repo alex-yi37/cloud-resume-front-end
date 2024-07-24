@@ -21,10 +21,10 @@
             location: "New York, NY", // string, req - represents work location
             // detailList Array<string>, req - represents bullet points of what I did at the job
             detailList: [
-              "Developed features and bug fixes in a Flask app. Wrote integration and unit tests for any changes made to the codebase",
-              "Participated in sprint planning as part of a an agile team to plan and discuss upcoming features",
-              "Implemented front end features and bug fixes in Typescript using React, Material UI, react-query and various other libraries",
-              "Acted as one of two main developers for reworking an internal-facing workflow. This involved cross functional collaboration with designers, engineers and product managers from other teams to align on timelines and goals",
+              "Developed features and bug fixes in a Flask app, writing integration and unit tests to help prevent regressions",
+              "As part of a an agile team, participated in sprint planning for upcoming features, including technical discussions and engineering effort point estimations",
+              "Tackled front end work in a React codebase using Typescript, Material UI, and react-query, reducing our overall backlog",
+              "Spearheaded efforts to rework an internal workflow through cross functional collaboration with designers, engineers and product managers from other teams to align on timelines and goals. Our users reported better UX and workflow speeds",
             ],
           },
           {
@@ -33,9 +33,8 @@
             dateRange: "July 2021 - November 2021",
             location: "Brooklyn, NY",
             detailList: [
-              "Gained experience with Ruby on Rails while implementing fixes and features for back end applications",
-              "Participated in meetings with team members to discuss upcoming features. To this end, drafted documents outlining scope, high level implementation, and open questions to be shared with the team",
-              "Implemented front end features and bug fixes using React, Redux, and various other libraries. Used Typescript for the majority of this work",
+              "Implemented bug fixes and features in a Ruby on Rails codebase, including updating a GraphQL endpoint and SQL queries. On the front end, worked with React, Redux and Typescript to add features and fix bugs",
+              "Drafted product feature documents outlining scope, high level implementation, and open questions for team collaboration",
             ],
           },
           {
@@ -44,10 +43,10 @@
             dateRange: "March 2020 - July 2021",
             location: "New York, NY",
             detailList: [
-              "Developed part of the checkout flow for a Telecommunications client using React, Material UI and Next.js",
-              "Created an accessible UX for screen reader users by implementing accessibility best practices",
-              "Followed agile software development practices throughout the duration of the project using JIRA",
-              "Participated in and presented feature demos to internal stakeholders for product buy-in",
+              "Worked on a product page and checkout flow for a Telecommunications client using React, Material UI and Next.js",
+              "Created an accessible UX for screen reader users through a11y best practices by collaborating with QA and accessibility teams",
+              "Tracked tickets and progress with JIRA and took part in agile software development practices",
+              "Championed features by presenting demos to internal stakeholders for product buy-in",
             ],
           },
           {
@@ -56,7 +55,7 @@
             dateRange: "Sep 2019 - Dec 2019",
             location: "New York, NY",
             detailList: [
-              "Led review of the NERD stack (Node.js, Express.js, React, Redux, Relational Databases), as well as algorithms and data structures",
+              "Led review of the NERD stack (Node.js, Express.js, React, Redux, Relational Databases), and algorithms and data structures",
               "Administered technical interviews to prospective students",
               "Directed two student teams as a technical mentor and project manager, leading standups and code reviews",
             ],
@@ -99,180 +98,34 @@
           <a href="https://github.com/alex-yi37">GitHub</a>
         </p>
       </div>
+
       <hr />
-      <!-- employment history created by vue below -->
-      <!-- <div class="employment-container">
-        <h3>Employment</h3>
-        <ul v-scope class="employment-list">
-          <li v-for="empObj in employmentHistoryList">
-            <div class="employment-header">
-              <p>{{ empObj.role }}</p>
-              <p>{{ empObj.dateRange }}</p>
-            </div>
-            <p>{{ empObj.company }} - {{ empObj.location }}</p>
-            <ul class="job-detail-container">
-              <li v-for="jobItem in empObj.detailList"><p>{{ jobItem }}</p></li>
-            </ul>
-          </li>
-        </ul>
-      </div> -->
-      <!-- employment history created by vue above -->
-      <!-- static html -->
-      <div class="employment-container">
-        <h3>Employment</h3>
-        <ul class="employment-list">
-          <li>
-            <div class="employment-header">
-              <p>Software Engineer</p>
-              <p>June 2022 - September 2022</p>
-            </div>
-            <p>Nomad Health - New York, NY</p>
-            <ul class="job-detail-container">
-              <li>
-                <p>
-                  Developed features and bug fixes in a Flask app. Wrote
-                  integration and unit tests for any changes made to the
-                  codebase
-                </p>
-              </li>
-              <li>
-                <p>
-                  Participated in sprint planning as part of a an agile team to
-                  plan and discuss upcoming features
-                </p>
-              </li>
-              <li>
-                <p>
-                  Implemented front end features and bug fixes in Typescript
-                  using React, Material UI, react-query and various other
-                  libraries
-                </p>
-              </li>
-              <li>
-                <p>
-                  Acted as one of two main developers for reworking an
-                  internal-facing workflow. This involved cross functional
-                  collaboration with designers, engineers and product managers
-                  from other teams to align on timelines and goals
-                </p>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="employment-header">
-              <p>Software Developer</p>
-              <p>July 2021 - November 2021</p>
-            </div>
-            <p>Chronograph - Brooklyn, NY</p>
-            <ul class="job-detail-container">
-              <li>
-                <p>
-                  Gained experience with Ruby on Rails while implementing fixes
-                  and features for back end applications
-                </p>
-              </li>
-              <li>
-                <p>
-                  Participated in meetings with team members to discuss upcoming
-                  features. To this end, drafted documents outlining scope, high
-                  level implementation, and open questions to be shared with the
-                  team
-                </p>
-              </li>
-              <li>
-                <p>
-                  Implemented front end features and bug fixes using React,
-                  Redux, and various other libraries. Used Typescript for the
-                  majority of this work
-                </p>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="employment-header">
-              <p>Associate Software Developer</p>
-              <p>March 2020 - July 2021</p>
-            </div>
-            <p>Infosys - New York, NY</p>
-            <ul class="job-detail-container">
-              <li>
-                <p>
-                  Developed part of the checkout flow for a Telecommunications
-                  client using React, Material UI and Next.js
-                </p>
-              </li>
-              <li>
-                <p>
-                  Created an accessible UX for screen reader users by
-                  implementing accessibility best practices
-                </p>
-              </li>
-              <li>
-                <p>
-                  Followed agile software development practices throughout the
-                  duration of the project using JIRA
-                </p>
-              </li>
-              <li>
-                <p>
-                  Participated in and presented feature demos to internal
-                  stakeholders for product buy-in
-                </p>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="employment-header">
-              <p>Software Engineering Teaching Fellow</p>
-              <p>Sep 2019 - Dec 2019</p>
-            </div>
-            <p>Fullstack Academy of Code - New York, NY</p>
-            <ul class="job-detail-container">
-              <li>
-                <p>
-                  Led review of the NERD stack (Node.js, Express.js, React,
-                  Redux, Relational Databases), as well as algorithms and data
-                  structures
-                </p>
-              </li>
-              <li>
-                <p>Administered technical interviews to prospective students</p>
-              </li>
-              <li>
-                <p>
-                  Directed two student teams as a technical mentor and project
-                  manager, leading standups and code reviews
-                </p>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <!-- static html -->
-      <hr />
+
       <!-- skills list -->
       <div class="skills-container">
         <h3>Skills</h3>
         <ul class="skills-list">
           <li>
             <p>
-              <b>Proficient:</b>&nbsp;Javascript, React, Node.js, Express.js
+              <b>Proficient:</b>&nbsp;JavaScript (3 years), React (3 years),
+              TypeScript (3 years)
             </p>
           </li>
           <li>
             <p>
-              <b>Knowledgeable:</b>&nbsp;Typescript, Python, Git, HTML5,
-              PostgreSQL, Redux, Docker
+              <b>Knowledgeable:</b>&nbsp;Next.js, Python (1 year), Node.js, Git
+              (3 years), HTML, CSS, Redux, Docker, Flask, Express.js
             </p>
           </li>
           <li>
             <p>
-              <b>Some Experience:</b>&nbsp;Flask, MongoEngine, Postman, Webpack,
-              CSS, Material UI, React Testing Library, Pytest, Jest
+              <b>Some Experience:</b>&nbsp;SQL, AWS, PostgreSQL, MongoDB,
+              Material UI, React Testing Library, Pytest, Jest
             </p>
           </li>
         </ul>
       </div>
+
       <!-- education list -->
       <div class="education-list-container">
         <h3>Education</h3>
@@ -293,7 +146,26 @@
           </li>
         </ul>
       </div>
+
+      <hr />
+
+      <!-- employment history created by vue below -->
+      <div class="employment-container">
+        <h3>Employment</h3>
+        <ul v-scope class="employment-list">
+          <li v-for="empObj in employmentHistoryList">
+            <div class="employment-header">
+              <p>{{ empObj.role }}</p>
+              <p>{{ empObj.dateRange }}</p>
+            </div>
+            <p>{{ empObj.company }} - {{ empObj.location }}</p>
+            <ul class="job-detail-container">
+              <li v-for="jobItem in empObj.detailList"><p>{{ jobItem }}</p></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </main>
-    <script src="../src/index.js" type="module"></script>
+    <!-- <script src="../src/index.js" type="module"></script> -->
   </body>
 </html>

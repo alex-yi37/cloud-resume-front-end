@@ -87,6 +87,10 @@ body {
   padding-bottom: 0.5rem;
 }
 
+.employment-container {
+  padding-top: 8px;
+}
+
 .employment-container > ul {
   list-style: none;
   padding-left: 0px;
@@ -124,10 +128,18 @@ body {
   padding-bottom: 8px;
 }
 
+.skills-container {
+  padding-top: 8px;
+}
+
 .skills-list {
   list-style: none;
   padding-left: 20px;
-  padding-bottom: 16px;
+  padding-bottom: 8px;
+}
+
+.education-list-container {
+  padding-bottom: 8px;
 }
 
 .education-list {
@@ -163,3 +175,5 @@ body {
     max-width: 1000px;
   }
 }
+
+/* todo: add media queries to make employment item title and dates worked to stack on top of each other */
