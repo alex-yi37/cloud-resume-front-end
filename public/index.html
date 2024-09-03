@@ -7,84 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Cloud Resume</title>
     <link rel="stylesheet" href="main.css" />
-    <!-- vue script -->
-    <script type="module">
-      import { createApp } from "https://unpkg.com/petite-vue?module";
-
-      createApp({
-        // exposed to all expressions
-        employmentHistory: [
-          {
-            company: "Nomad Health", // string, req
-            role: "Software Engineer", // string, req
-            dateRange: "April 2022 - February 2023", // string, req - represents dates worked
-            location: "New York, NY", // string, req - represents work location
-            // detailList Array<string>, req - represents bullet points of what I did at the job
-            detailList: [
-              "Built out an internal platform to assist admins with processing nursing job applications using TypeScript, React, Material-UI, and react-query on the front end and Python, Flask, and MongoDB on the back end",
-              "Led front end development to migrate a feature for efficiently verifying job applicant credentials by collaborating with engineers, product managers, and designers",
-              "Improved ops users' efficiency by automating a manual workflow which involved aggregating and validating data from multiple sources, generating a pdf document, and setting up monitoring in Datadog",
-              "Facilitated sprint planning, tech debt discussions, and helped mentor new hires",
-            ],
-          },
-          {
-            company: "Chronograph",
-            role: "Software Developer",
-            dateRange: "July 2021 - November 2021",
-            location: "Brooklyn, NY",
-            detailList: [
-              "Worked on a platform for private equity firms to aggregate and analyze their financial data using TypeScript, React, Redux, and CSS modules on the front end and Ruby on Rails with Postgres on the back end",
-              "Implemented a note taking feature for internal user collaboration by writing relevant back end migrations and endpoints, as well as implementing the UI",
-              "Created and ran scripts to manage data clean up in our backend per internal ops user requests",
-              "Participated in feature planning meetings with the entire engineering team to outline scope, discuss high level implementation details, and solicit feedback on planning docs",
-            ],
-          },
-          {
-            company: "AT&T (Contractor via Infosys)",
-            role: "Associate Software Developer",
-            dateRange: "March 2020 - July 2021",
-            location: "New York, NY",
-            detailList: [
-              "Bootstrapped the front end for an e-commerce app, building out various UI components, product pages and a checkout flow using React, Material UI and Next.js",
-              "Enhanced the product's checkout flow by building functionality for returning users to continue checkouts from a previous visit, as well as the ability to schedule an in-home installation service for select users",
-              "Led a11y efforts for the project with assistance from QA and accessibility teams",
-              "Presented product demos to internal stakeholders to increase visibility of the team's work and garner feedback",
-            ],
-          },
-          {
-            company: "Fullstack Academy of Code",
-            role: "Software Engineering Teaching Fellow",
-            dateRange: "Sep 2019 - Dec 2019",
-            location: "New York, NY",
-            detailList: [
-              "Worked as a teaching assistant for 45 students learning algorithms, data structures and JS fundamentals with a focus on the NERD stack (Node.js, Express.js, React, Redux, Relational Databases)",
-              "Acted as a technical advisor and project manager to 10 students, leading team stand ups and code reviews",
-            ],
-          },
-        ],
-        // get employment history that replaces missing values with default values
-        get employmentHistoryList() {
-          return this.employmentHistory.map((employmentObj) => {
-            return {
-              company: employmentObj?.company || "No company indicated", // string, req
-              role: employmentObj?.role || "No role indicated", // string, req
-              dateRange: employmentObj?.dateRange || "No date range indicated", // string, req - represents dates worked
-              location: employmentObj?.location || "No location indicated", // string, req - represents work location
-              // detailList Array<string>, req - represents bullet points of what I did at the job
-              detailList:
-                employmentObj?.detailList &&
-                Array.isArray(employmentObj.detailList) &&
-                employmentObj.detailList?.length > 0
-                  ? employmentObj.detailList
-                  : "No job details indicated",
-            };
-          });
-        },
-        logging(item) {
-          console.log(item);
-        },
-      }).mount();
-    </script>
   </head>
   <body>
     <main class="main-container">
@@ -131,18 +53,141 @@
 
       <hr />
 
-      <!-- employment history created by vue below -->
       <div class="employment-container">
         <h3>Experience</h3>
-        <ul v-scope class="employment-list">
-          <li v-for="empObj in employmentHistoryList">
+        <ul class="employment-list">
+          <li>
             <div class="employment-header">
-              <p>{{ empObj.role }}</p>
-              <p>{{ empObj.dateRange }}</p>
+              <p>Software Engineer</p>
+              <p>April 2022 - February 2023</p>
             </div>
-            <p>{{ empObj.company }} - <i>{{ empObj.location }}</i></p>
+            <p>Nomad Health - <i>New York, NY</i></p>
             <ul class="job-detail-container">
-              <li v-for="jobItem in empObj.detailList"><p>{{ jobItem }}</p></li>
+              <li>
+                <p>
+                  Built out an internal platform to assist admins with
+                  processing nursing job applications using TypeScript, React,
+                  Material-UI, and react-query on the front end and Python,
+                  Flask, and MongoDB on the back end
+                </p>
+              </li>
+              <li>
+                <p>
+                  Led front end development to migrate a feature for efficiently
+                  verifying job applicant credentials by collaborating with
+                  engineers, product managers, and designers
+                </p>
+              </li>
+              <li>
+                <p>
+                  Improved ops users' efficiency by automating a manual workflow
+                  which involved aggregating and validating data from multiple
+                  sources, generating a pdf document, and setting up monitoring
+                  in Datadog
+                </p>
+              </li>
+              <li>
+                <p>
+                  Facilitated sprint planning, tech debt discussions, and helped
+                  mentor new hires
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="employment-header">
+              <p>Software Developer</p>
+              <p>July 2021 - November 2021</p>
+            </div>
+            <p>Chronograph - <i>Brooklyn, NY</i></p>
+            <ul class="job-detail-container">
+              <li>
+                <p>
+                  Worked on a platform for private equity firms to aggregate and
+                  analyze their financial data using TypeScript, React, Redux,
+                  and CSS modules on the front end and Ruby on Rails with
+                  Postgres on the back end
+                </p>
+              </li>
+              <li>
+                <p>
+                  Implemented a note taking feature for internal user
+                  collaboration by writing relevant back end migrations and
+                  endpoints, as well as implementing the UI
+                </p>
+              </li>
+              <li>
+                <p>
+                  Created and ran scripts to manage data clean up in our backend
+                  per internal ops user requests
+                </p>
+              </li>
+              <li>
+                <p>
+                  Participated in feature planning meetings with the entire
+                  engineering team to outline scope, discuss high level
+                  implementation details, and solicit feedback on planning docs
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="employment-header">
+              <p>Associate Software Developer</p>
+              <p>March 2020 - July 2021</p>
+            </div>
+            <p>AT&amp;T (Contractor via Infosys) - <i>New York, NY</i></p>
+            <ul class="job-detail-container">
+              <li>
+                <p>
+                  Bootstrapped the front end for an e-commerce app, building out
+                  various UI components, product pages and a checkout flow using
+                  React, Material UI and Next.js
+                </p>
+              </li>
+              <li>
+                <p>
+                  Enhanced the product's checkout flow by building functionality
+                  for returning users to continue checkouts from a previous
+                  visit, as well as the ability to schedule an in-home
+                  installation service for select users
+                </p>
+              </li>
+              <li>
+                <p>
+                  Led a11y efforts for the project with assistance from QA and
+                  accessibility teams
+                </p>
+              </li>
+              <li>
+                <p>
+                  Presented product demos to internal stakeholders to increase
+                  visibility of the team's work and garner feedback
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="employment-header">
+              <p>Software Engineering Teaching Fellow</p>
+              <p>Sep 2019 - Dec 2019</p>
+            </div>
+            <p>Fullstack Academy of Code - <i>New York, NY</i></p>
+            <ul class="job-detail-container">
+              <li>
+                <p>
+                  Worked as a teaching assistant for 45 students learning
+                  algorithms, data structures and JS fundamentals with a focus
+                  on the NERD stack (Node.js, Express.js, React, Redux,
+                  Relational Databases)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Acted as a technical advisor and project manager to 10
+                  students, leading team stand ups and code reviews
+                </p>
+              </li>
             </ul>
           </li>
         </ul>
