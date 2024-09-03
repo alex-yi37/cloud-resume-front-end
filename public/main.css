@@ -83,6 +83,15 @@ body {
   text-align: center;
 }
 
+.view-count-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
 .header {
   padding-bottom: 0.5rem;
 }
@@ -109,9 +118,6 @@ body {
 .employment-header > p {
   font-weight: bold;
 }
-.employment-header > p:first-child {
-  font-style: italic;
-}
 
 .job-detail-container {
   padding-left: 20px;
@@ -137,6 +143,10 @@ body {
   padding-left: 20px;
   padding-bottom: 8px;
 }
+.skills-list b {
+  width: 100px;
+  display: inline-block;
+}
 
 .education-list-container {
   padding-bottom: 8px;
@@ -161,6 +171,12 @@ body {
   .main-container {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .header-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
   }
 }
 

@@ -17,14 +17,14 @@
           {
             company: "Nomad Health", // string, req
             role: "Software Engineer", // string, req
-            dateRange: "June 2022 - September 2022", // string, req - represents dates worked
+            dateRange: "April 2022 - February 2023", // string, req - represents dates worked
             location: "New York, NY", // string, req - represents work location
             // detailList Array<string>, req - represents bullet points of what I did at the job
             detailList: [
-              "Developed features and bug fixes in a Flask app, writing integration and unit tests to help prevent regressions",
-              "As part of a an agile team, participated in sprint planning for upcoming features, including technical discussions and engineering effort point estimations",
-              "Tackled front end work in a React codebase using Typescript, Material UI, and react-query, reducing our overall backlog",
-              "Spearheaded efforts to rework an internal workflow through cross functional collaboration with designers, engineers and product managers from other teams to align on timelines and goals. Our users reported better UX and workflow speeds",
+              "Built out an internal platform to assist admins with processing nursing job applications using TypeScript, React, Material-UI, and react-query on the front end and Python, Flask, and MongoDB on the back end",
+              "Led front end development to migrate a feature for efficiently verifying job applicant credentials by collaborating with engineers, product managers, and designers",
+              "Improved ops users' efficiency by automating a manual workflow which involved aggregating and validating data from multiple sources, generating a pdf document, and setting up monitoring in Datadog",
+              "Facilitated sprint planning, tech debt discussions, and helped mentor new hires",
             ],
           },
           {
@@ -33,20 +33,22 @@
             dateRange: "July 2021 - November 2021",
             location: "Brooklyn, NY",
             detailList: [
-              "Implemented bug fixes and features in a Ruby on Rails codebase, including updating a GraphQL endpoint and SQL queries. On the front end, worked with React, Redux and Typescript to add features and fix bugs",
-              "Drafted product feature documents outlining scope, high level implementation, and open questions for team collaboration",
+              "Worked on a platform for private equity firms to aggregate and analyze their financial data using TypeScript, React, Redux, and CSS modules on the front end and Ruby on Rails with Postgres on the back end",
+              "Implemented a note taking feature for internal user collaboration by writing relevant back end migrations and endpoints, as well as implementing the UI",
+              "Created and ran scripts to manage data clean up in our backend per internal ops user requests",
+              "Participated in feature planning meetings with the entire engineering team to outline scope, discuss high level implementation details, and solicit feedback on planning docs",
             ],
           },
           {
-            company: "Infosys",
+            company: "AT&T (Contractor via Infosys)",
             role: "Associate Software Developer",
             dateRange: "March 2020 - July 2021",
             location: "New York, NY",
             detailList: [
-              "Worked on a product page and checkout flow for a Telecommunications client using React, Material UI and Next.js",
-              "Created an accessible UX for screen reader users through a11y best practices by collaborating with QA and accessibility teams",
-              "Tracked tickets and progress with JIRA and took part in agile software development practices",
-              "Championed features by presenting demos to internal stakeholders for product buy-in",
+              "Bootstrapped the front end for an e-commerce app, building out various UI components, product pages and a checkout flow using React, Material UI and Next.js",
+              "Enhanced the product's checkout flow by building functionality for returning users to continue checkouts from a previous visit, as well as the ability to schedule an in-home installation service for select users",
+              "Led a11y efforts for the project with assistance from QA and accessibility teams",
+              "Presented product demos to internal stakeholders to increase visibility of the team's work and garner feedback",
             ],
           },
           {
@@ -55,9 +57,8 @@
             dateRange: "Sep 2019 - Dec 2019",
             location: "New York, NY",
             detailList: [
-              "Led review of the NERD stack (Node.js, Express.js, React, Redux, Relational Databases), and algorithms and data structures",
-              "Administered technical interviews to prospective students",
-              "Directed two student teams as a technical mentor and project manager, leading standups and code reviews",
+              "Worked as a teaching assistant for 45 students learning algorithms, data structures and JS fundamentals with a focus on the NERD stack (Node.js, Express.js, React, Redux, Relational Databases)",
+              "Acted as a technical advisor and project manager to 10 students, leading team stand ups and code reviews",
             ],
           },
         ],
@@ -88,15 +89,24 @@
   <body>
     <main class="main-container">
       <h1>Alex Yi's Cloud Resume</h1>
+      <div class="view-count-container">
+        <p class="view-count-el">View count:</p>
+        <p id="view-count">Loading...</p>
+      </div>
       <!-- header, find more semantic markup later -->
       <div class="header">
         <h2>Alexander Yi</h2>
-        <p><b>New York</b>, NY | Open to remote work</p>
-        <p>
-          <a href="mailto:alexanderyi933@gmail.com">alexanderyi933@gmail.com</a>
-          | <a href="https://www.linkedin.com/in/alexanderyi99/">LinkedIn</a> |
-          <a href="https://github.com/alex-yi37">GitHub</a>
-        </p>
+        <div class="header-details">
+          <p><b>New York</b>, NY</p>
+          <p>
+            <a href="mailto:alexanderyi933@gmail.com"
+              >alexanderyi933@gmail.com</a
+            >
+            |
+            <a href="https://www.linkedin.com/in/alexanderyi99/">LinkedIn</a> |
+            <a href="https://github.com/alex-yi37">GitHub</a>
+          </p>
+        </div>
       </div>
 
       <hr />
@@ -107,24 +117,38 @@
         <ul class="skills-list">
           <li>
             <p>
-              <b>Proficient:</b>&nbsp;JavaScript (3 years), React (3 years),
-              TypeScript (3 years)
+              <b>Languages</b>JavaScript, TypeScript, Python, HTML, CSS, SQL
             </p>
           </li>
           <li>
             <p>
-              <b>Knowledgeable:</b>&nbsp;Next.js, Python (1 year), Node.js, Git
-              (3 years), HTML, CSS, Redux, Docker, Flask, Express.js
-            </p>
-          </li>
-          <li>
-            <p>
-              <b>Some Experience:</b>&nbsp;SQL, AWS, PostgreSQL, MongoDB,
-              Material UI, React Testing Library, Pytest, Jest
+              <b>Technologies</b>React, Next.js, Redux, Material UI, Flask, Git,
+              PostgreSQL, MongoDB, Docker
             </p>
           </li>
         </ul>
       </div>
+
+      <hr />
+
+      <!-- employment history created by vue below -->
+      <div class="employment-container">
+        <h3>Experience</h3>
+        <ul v-scope class="employment-list">
+          <li v-for="empObj in employmentHistoryList">
+            <div class="employment-header">
+              <p>{{ empObj.role }}</p>
+              <p>{{ empObj.dateRange }}</p>
+            </div>
+            <p>{{ empObj.company }} - <i>{{ empObj.location }}</i></p>
+            <ul class="job-detail-container">
+              <li v-for="jobItem in empObj.detailList"><p>{{ jobItem }}</p></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <hr />
 
       <!-- education list -->
       <div class="education-list-container">
@@ -146,26 +170,7 @@
           </li>
         </ul>
       </div>
-
-      <hr />
-
-      <!-- employment history created by vue below -->
-      <div class="employment-container">
-        <h3>Employment</h3>
-        <ul v-scope class="employment-list">
-          <li v-for="empObj in employmentHistoryList">
-            <div class="employment-header">
-              <p>{{ empObj.role }}</p>
-              <p>{{ empObj.dateRange }}</p>
-            </div>
-            <p>{{ empObj.company }} - {{ empObj.location }}</p>
-            <ul class="job-detail-container">
-              <li v-for="jobItem in empObj.detailList"><p>{{ jobItem }}</p></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
     </main>
-    <!-- <script src="../src/index.js" type="module"></script> -->
+    <script src="main.js" type="module"></script>
   </body>
 </html>
